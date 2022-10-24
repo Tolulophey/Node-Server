@@ -4,6 +4,7 @@ const path = require("path")
 
 const server = http.createServer((request, response)=>{
     let filePath = path.join(__dirname, "public", request.url === "/" || request.url == "/home" ? "index.html" : request.url)
+    let imagePath = path.join(__dirname, "image", request.url === "/" || request.url == "/home" ? "index.html" : request.url)
     let empthPath = path.join(__dirname, "public", "404.html")
     const getContentType = (filePath)=>{
         let extname = path.extname(filePath)
@@ -37,7 +38,7 @@ const server = http.createServer((request, response)=>{
     })
 })
 
-const port = 4000
+const port = 3000
 
 server.listen(port, ()=>{
     console.log("Server is running")
